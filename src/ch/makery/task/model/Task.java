@@ -17,7 +17,7 @@ public class Task {
 		status = "i";
 	}
 	
-	oid setTaskName(String name){
+	void setTaskName(String name){
 		taskName = name;
 	}
 	void setDescription(String desc){
@@ -29,10 +29,10 @@ public class Task {
 	void setLocation(String loc){
 		location = loc;
 	}
-	void setPriority(char prior){
+	void setPriority(String prior){
 		priority = prior;
 	}
-	void setStatus(char sts){
+	void setStatus(String sts){
 		status = sts;
 	}
 	
@@ -57,4 +57,4 @@ public class Task {
 	}
 }
 
-}
+
