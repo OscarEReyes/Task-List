@@ -45,7 +45,7 @@ public class TaskOverviewController {
 	 
 	  @FXML
 	  private void initialize() {
-	        // Initialize the person table with the two columns.
+	        // Initialize the task table with the two columns.
 		  	// -> chosen overPropertyValueFactory because it is type-safe
 		  
 	        statusColumn.setCellValueFactory(cellData -> cellData.getValue().StatusProperty());
@@ -103,6 +103,38 @@ public class TaskOverviewController {
 	          alert.setHeaderText("No Task Was Selected");
 	          alert.setContentText("Please select a task from the list.");
 
+	          alert.showAndWait();
+	      }
+	  }
+	  
+
+	  @FXML
+	  private void handleNewTask() {
+	      Task newTask = new Task("Unnamed Task");
+	      boolean okClicked = mainApp.showTaskEditDialog(newTask);
+	      if (okClicked) {
+	          mainApp.getTaskData().add(newTask);
+	      }
+	  }
+
+
+	  @FXML
+	  private void handleEditTask() {
+	      Task selectedTask = taskTable.getSelectionModel().getSelectedItem();
+	      if (selectedTask != null) {
+	          boolean okClicked = mainApp.showTaskEditDialog(selectedTask);
+	          if (okClicked) {
+	              showTaskDetails(selectedTask);
+	          }
+
+	      } else {
+	          // Warn user of error.
+	          Alert alert = new Alert(AlertType.WARNING);
+	          alert.initOwner(mainApp.getPrimaryStage());
+	          alert.setTitle("Error: No Task Selected");
+	          alert.setContentText("Please select a task from the list.");
+	          
+	          // Show alert an wait for response
 	          alert.showAndWait();
 	      }
 	  }
