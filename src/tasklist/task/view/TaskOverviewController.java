@@ -24,6 +24,9 @@ public class TaskOverviewController {
 	 private TableColumn<Task, String> dueDateColumn;
 	 
 	 @FXML
+	 private TableColumn<Task, String> priorityColumn;
+	 
+	 @FXML
 	 private TableColumn<Task, String> locationColumn;
 	 
 	 private MainApp mainApp;
