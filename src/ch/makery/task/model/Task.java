@@ -5,15 +5,15 @@ public class Task {
 	private String description;
 	private String dueDate;
 	private String location;
-	private char priority;
-	private char status;
+	private String priority;
+	private String status;
 	
 	public Task (String name){
 		taskName = name;
 		description = "No description";
 		dueDate = "No due date";
 		location = "No location";
-		priority = 'n';
-		status = 'i';
+		priority = "n";
+		status = "i";
 	}
 }
