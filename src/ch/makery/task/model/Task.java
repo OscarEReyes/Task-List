@@ -16,4 +16,45 @@ public class Task {
 		priority = "n";
 		status = "i";
 	}
+	
+	oid setTaskName(String name){
+		taskName = name;
+	}
+	void setDescription(String desc){
+		description = desc;
+	}
+	void setDueDate(String date){
+		dueDate = date;
+	}
+	void setLocation(String loc){
+		location = loc;
+	}
+	void setPriority(char prior){
+		priority = prior;
+	}
+	void setStatus(char sts){
+		status = sts;
+	}
+	
+	
+	String getTaskName(){
+		return taskName;
+	}
+	String getDescription(){
+		return description;
+	}
+	String getDueDate(){
+		return dueDate;
+	}
+	String getLocation(){
+		return location;
+	}
+	String getPriority(){
+		return priority;
+	}
+	String getStatus(){
+		return status;
+	}
+}
+
 }
