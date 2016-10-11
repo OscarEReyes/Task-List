@@ -1,17 +1,28 @@
-package ch.makery.task;
+package tasklist.task;
 import java.io.IOException;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import tasklist.task.model.Task;
+
 
 public class MainApp extends Application {
-	 private Stage primaryStage;
-	 private BorderPane rootLayout;
+	private Stage primaryStage;
+	private BorderPane rootLayout;
+	 
+	private ObservableList<Task> taskData = FXCollections.observableArrayList();
+
+
+	public ObservableList<Task> getTaskData() {
+		return taskData;
+	}
 	    
 	@Override
 	public void start(Stage primaryStage) {

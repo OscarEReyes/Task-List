@@ -1,4 +1,4 @@
-package ch.makery.task.model;
+package tasklist.task.model;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
