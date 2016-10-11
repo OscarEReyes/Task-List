@@ -7,4 +7,13 @@ public class Task {
 	private String location;
 	private char priority;
 	private char status;
+	
+	public Task (String name){
+		taskName = name;
+		description = "No description";
+		dueDate = "No due date";
+		location = "No location";
+		priority = 'n';
+		status = 'i';
+	}
 }
