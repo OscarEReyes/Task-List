@@ -16,8 +16,8 @@
    <children>
       <ButtonBar layoutX="74.0" layoutY="510.0" prefHeight="27.0" prefWidth="186.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="195.0">
         <buttons>
-          <Button minWidth="64.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="73.0" text="New..." />
-            <Button mnemonicParsing="false" text="Edit..." />
+          <Button minWidth="64.0" mnemonicParsing="false" onAction="#handleNewTask" prefHeight="27.0" prefWidth="73.0" text="New..." />
+            <Button mnemonicParsing="false" onAction="#handleEditTask" text="Edit..." />
             <Button mnemonicParsing="false" onAction="#handleDeleteTask" text="Delete" />
         </buttons>
       </ButtonBar>
