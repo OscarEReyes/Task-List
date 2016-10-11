@@ -1,58 +1,94 @@
 package ch.makery.task.model;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class Task {
-	private String taskName;
-	private String description;
-	private String dueDate;
-	private String location;
-	private String priority;
-	private String status;
+	private final StringProperty taskName;
+	private final StringProperty description;
+	private final StringProperty dueDate;
+	private final StringProperty location;
+	private final StringProperty priority;
+	private final StringProperty status;
 	
 	public Task (String name){
-		taskName = name;
-		description = "No description";
-		dueDate = "No due date";
-		location = "No location";
-		priority = "n";
-		status = "i";
+		taskName = new SimpleStringProperty(name);
+		description = new SimpleStringProperty("No description");
+		dueDate = new SimpleStringProperty("No due date");
+		location = new SimpleStringProperty("No location");
+		priority = new SimpleStringProperty("n");
+		status = new SimpleStringProperty("i");
 	}
 	
-	void setTaskName(String name){
-		taskName = name;
+	public void setTaskName(String name){
+		taskName.set(name);
 	}
-	void setDescription(String desc){
-		description = desc;
+	
+	public void setDescription(String desc){
+		description.set(desc);
 	}
-	void setDueDate(String date){
-		dueDate = date;
+	
+	public void setDueDate(String date){
+		dueDate.set(date);
 	}
-	void setLocation(String loc){
-		location = loc;
+	
+	public void setLocation(String loc){
+		location.set(loc);
 	}
-	void setPriority(String prior){
-		priority = prior;
+	
+	public void setPriority(String prior){
+		priority.set(prior);
 	}
-	void setStatus(String sts){
-		status = sts;
+	
+	public void setStatus(String sts){
+		status.set(sts);
 	}
 	
 	
 	String getTaskName(){
-		return taskName;
+		return taskName.get();
 	}
+	
 	String getDescription(){
-		return description;
+		return description.get();
 	}
 	String getDueDate(){
+		return dueDate.get();
+	}
+	
+	String getLocation(){
+		return location.get();
+	}
+	
+	String getPriority(){
+		return priority.get();
+	}
+	
+	String getStatus(){
+		return status.get();
+	}
+	
+	public StringProperty TaskNameProperty(){
+		return taskName;
+	}
+	
+	public StringProperty DescriptionProperty(){
+		return description;
+	}
+	
+	public StringProperty DueDateProperty(){
 		return dueDate;
 	}
-	String getLocation(){
+	
+	public StringProperty LocationProperty(){
 		return location;
 	}
-	String getPriority(){
+	
+	public StringProperty PriorityProperty(){
 		return priority;
 	}
-	String getStatus(){
+	
+	public StringProperty StatusProperty(){
 		return status;
 	}
 }
