@@ -1,6 +1,8 @@
 package tasklist.task.view;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -88,6 +90,22 @@ public class TaskOverviewController {
 	  @FXML
 	  private void handleDeleteTask() {
 	      int selectedIndex = taskTable.getSelectionModel().getSelectedIndex();
-	      taskTable.getItems().remove(selectedIndex);
+
+	      if (selectedIndex >= 0) {
+	    	  // Delete selected item
+	          taskTable.getItems().remove(selectedIndex);
+	      } else {
+	    	  // Alert user he has not selected a task to delete.
+	          Alert alert = new Alert(AlertType.WARNING);
+	          alert.initOwner(mainApp.getPrimaryStage());
+	          
+	          alert.setTitle("No Selection Made");
+	          alert.setHeaderText("No Task Was Selected");
+	          alert.setContentText("Please select a task from the list.");
+
+	          alert.showAndWait();
+	      }
 	  }
+	  
+	  
 }
