@@ -48,6 +48,13 @@ public class TaskOverviewController {
 		  
 	        statusColumn.setCellValueFactory(cellData -> cellData.getValue().StatusProperty());
 	        nameColumn.setCellValueFactory(cellData -> cellData.getValue().TaskNameProperty());
+	        
+	        // Clear task details.
+	        showTaskDetails(null);
+
+	        // Listen for selection changes and update labels upon changes.
+	        taskTable.getSelectionModel().selectedItemProperty().addListener(
+	                (observable, oldValue, newValue) -> showTaskDetails(newValue));
 	  }
 
 	  // Called by the main application so that it can have a reference to itself.
@@ -74,4 +81,13 @@ public class TaskOverviewController {
 		        priorityLabel.setText("");
 		    }
 		}
+	  
+	  // Delete task
+	  // Called on delete button click
+
+	  @FXML
+	  private void handleDeleteTask() {
+	      int selectedIndex = taskTable.getSelectionModel().getSelectedIndex();
+	      taskTable.getItems().remove(selectedIndex);
+	  }
 }

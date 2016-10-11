@@ -17,10 +17,15 @@ import tasklist.task.view.TaskOverviewController;
 public class MainApp extends Application {
 	private Stage primaryStage;
 	private BorderPane rootLayout;
-	 
+	
+	
 	private ObservableList<Task> taskData = FXCollections.observableArrayList();
 
 
+	public MainApp(){
+		taskData.add(new Task("Study"));
+	    taskData.add(new Task("Clean"));
+	}
 	public ObservableList<Task> getTaskData() {
 		return taskData;
 	}

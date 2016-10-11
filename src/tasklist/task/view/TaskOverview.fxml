@@ -18,7 +18,7 @@
         <buttons>
           <Button minWidth="64.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="73.0" text="New..." />
             <Button mnemonicParsing="false" text="Edit..." />
-            <Button mnemonicParsing="false" text="Delete" />
+            <Button mnemonicParsing="false" onAction="#handleDeleteTask" text="Delete" />
         </buttons>
       </ButtonBar>
       <SplitPane dividerPositions="0.3795986622073579" layoutX="-1.0" layoutY="-1.0" prefHeight="518.0" prefWidth="600.0">
@@ -60,14 +60,14 @@
                       <RowConstraints maxHeight="212.0" minHeight="0.0" prefHeight="123.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label fx:id="descriptionLabel" text="Description" />
-                        <Label text="Label" GridPane.columnIndex="1" />
-                        <Label fx:id="dueDateLabel" text="Due Date" GridPane.rowIndex="1" />
-                        <Label fx:id="locationLabel" text="Location" GridPane.rowIndex="2" />
-                        <Label fx:id="priorityLabel" text="Priority" GridPane.rowIndex="3" />
-                        <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label text="Description" />
+                        <Label fx:id="descriptionLabel" text="Label" GridPane.columnIndex="1" />
+                        <Label text="Due Date" GridPane.rowIndex="1" />
+                        <Label text="Location" GridPane.rowIndex="2" />
+                        <Label text="Priority" GridPane.rowIndex="3" />
+                        <Label fx:id="dueDateLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="locationLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="priorityLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      </children>
                   </GridPane>
                </children>
