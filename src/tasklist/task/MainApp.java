@@ -9,8 +9,10 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.application.Application;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import tasklist.task.model.Task;
+import tasklist.task.view.TaskEditDialogController;
 import tasklist.task.view.TaskOverviewController;
 
 
@@ -74,6 +76,38 @@ public class MainApp extends Application {
 	        
 	    } catch (IOException e) {
 	        e.printStackTrace();
+	    }
+	}
+	
+	public boolean showTaskEditDialog(Task task) {
+	    try {
+	        // Load fxml file and create new stage for the TaskEditDialog
+	        FXMLLoader loader = new FXMLLoader();
+	        loader.setLocation(MainApp.class.getResource("view/TaskEditDialog.fxml"));
+	        AnchorPane page = (AnchorPane) loader.load();
+
+	        // Create stage for taskEditDialog.
+	        Stage dialogStage = new Stage();
+	        dialogStage.setTitle("Edit Task");
+	        dialogStage.initModality(Modality.WINDOW_MODAL);
+	        dialogStage.initOwner(primaryStage);
+	        
+	        Scene scene = new Scene(page);
+	        dialogStage.setScene(scene);
+
+	        // Set task on controller.
+	        TaskEditDialogController controller = loader.getController();
+	        controller.setDialogStage(dialogStage);
+	        controller.setTask(task);
+
+	        // Show Edit dialog and wait for a user response.
+	        dialogStage.showAndWait();
+	        
+	        return controller.OkIsClicked();
+	        
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	        return false;
 	    }
 	}
 

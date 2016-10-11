@@ -43,7 +43,7 @@ public class TaskEditDialogController {
 		locationField.setText(task.getLocation());
 	}
 	
-	private boolean OkIsClicked() {
+	public boolean OkIsClicked() {
 		return okClicked;
 	}
 	
