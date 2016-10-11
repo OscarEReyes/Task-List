@@ -37,7 +37,7 @@ public class TaskEditDialogController {
 		this.task = task;
 		
 		nameField.setText(task.getTaskName());
-		descriptionField.setText(task.getDescription())
+		descriptionField.setText(task.getDescription());
 		dueDateField.setText(task.getDueDate());
 		priorityField.setText(task.getPriority());
 		locationField.setText(task.getLocation());
@@ -47,9 +47,41 @@ public class TaskEditDialogController {
 		return okClicked;
 	}
 	
+	@FXML
+	private void onOk(){
+		if (checkInputValidity()) {
+			task.setTaskName(nameField.getText());
+			task.setDescription(descriptionField.getText());
+			task.setDueDate(dueDateField.getText());
+			task.setPriority(priorityField.getText());
+			task.setLocation(locationField.getText());
+			
+			okClicked = true;
+			dialogStage.close();
+		}
+	}
 	
-	
-	
-	
-	
+	 @FXML
+	    private void onCancel() {
+	        dialogStage.close();
+	    }
+	 
+	private boolean checkInputValidity() {
+        if (nameField.getText() == null || nameField.getText().length() == 0) {
+        	// Alert user of error.
+        	
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.initOwner(dialogStage);
+            alert.setTitle("No Task Name Given");
+            alert.setHeaderText("Please Provide A Task Name");
+            alert.setContentText("No valid first name!\n");
+
+            alert.showAndWait();
+
+            return false; 
+            
+        } else {
+            return true;
+        }
+	}
 }
