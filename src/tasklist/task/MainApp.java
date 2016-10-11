@@ -11,6 +11,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import tasklist.task.model.Task;
+import tasklist.task.view.TaskOverviewController;
 
 
 public class MainApp extends Application {
@@ -61,6 +62,11 @@ public class MainApp extends Application {
 	
 	        // Center task overview in root layout
 	        rootLayout.setCenter(taskOverview);
+	        
+	        // Give mainApp access to the controller
+	        TaskOverviewController controller = loader.getController();
+	        controller.setMainApp(this);
+	        
 	    } catch (IOException e) {
 	        e.printStackTrace();
 	    }
