@@ -44,11 +44,13 @@ public class TaskOverviewController {
 	  private void initialize() {
 	        // Initialize the person table with the two columns.
 		  	// -> chosen overPropertyValueFactory because it is type-safe
+		  
 	        statusColumn.setCellValueFactory(cellData -> cellData.getValue().StatusProperty());
 	        nameColumn.setCellValueFactory(cellData -> cellData.getValue().TaskNameProperty());
 	        descriptionColumn.setCellValueFactory(cellData -> cellData.getValue().DescriptionProperty());
 	        dueDateColumn.setCellValueFactory(cellData -> cellData.getValue().DueDateProperty());
 	        locationColumn.setCellValueFactory(cellData -> cellData.getValue().LocationProperty());
+	        priorityColumn.setCellValueFactory(cellData -> cellData.getValue().PriorityProperty());
 	  }
 
 	  // Called by the main application so that it can have a reference to itself.
