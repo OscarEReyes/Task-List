@@ -57,5 +57,21 @@ public class TaskOverviewController {
 	      // Add observable list data to the table
 	      taskTable.setItems(mainApp.getTaskData());
 	  }
+	  
+	  private void showTaskDetails(Task task) {
+		    if (task!= null) {
+		        // Display every task detail in its appropriate label
+		        descriptionLabel.setText(task.getDescription());
+		        dueDateLabel.setText(task.getDueDate());
+		        locationLabel.setText(task.getLocation());
+		        priorityLabel.setText(task.getPriority());
 
+		    } else {
+		        // Clear labels if task is null. 
+		        descriptionLabel.setText("");
+		        dueDateLabel.setText("");
+		        locationLabel.setText("");
+		        priorityLabel.setText("");
+		    }
+		}
 }

@@ -45,26 +45,26 @@ public class Task {
 	}
 	
 	
-	String getTaskName(){
+	public String getTaskName(){
 		return taskName.get();
 	}
 	
-	String getDescription(){
+	public String getDescription(){
 		return description.get();
 	}
-	String getDueDate(){
+	public String getDueDate(){
 		return dueDate.get();
 	}
 	
-	String getLocation(){
+	public String getLocation(){
 		return location.get();
 	}
 	
-	String getPriority(){
+	public String getPriority(){
 		return priority.get();
 	}
 	
-	String getStatus(){
+	public String getStatus(){
 		return status.get();
 	}
 	
