@@ -9,12 +9,12 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="200.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tasklist.task.view.TaskEditDialogController">
+<AnchorPane maxHeight="280.0" minHeight="280.0" prefHeight="280.0" prefWidth="500.0" styleClass="background" stylesheets="@template.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tasklist.task.view.TaskEditDialogController">
    <children>
-      <GridPane layoutX="27.0" layoutY="24.0" prefHeight="141.0" prefWidth="446.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="20.0">
+      <GridPane layoutX="27.0" layoutY="24.0" prefHeight="186.0" prefWidth="442.0" AnchorPane.bottomAnchor="77.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="20.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="216.0" minWidth="10.0" prefWidth="159.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="293.0" minWidth="10.0" prefWidth="281.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
@@ -53,10 +53,10 @@
             <TextField fx:id="descriptionField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="dueDateField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="priorityField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="locationField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="locationField" prefHeight="12.0" prefWidth="258.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          </children>
       </GridPane>
-      <Button layoutX="30.0" layoutY="166.0" mnemonicParsing="false" onAction="#onOk" text="Ok" />
-      <Button layoutX="76.0" layoutY="165.0" mnemonicParsing="false" onAction="#onCancel" text="Cancel" />
+      <Button layoutX="30.0" layoutY="220.0" mnemonicParsing="false" onAction="#onOk" prefHeight="32.0" prefWidth="70.0" text="Ok" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="220.0" />
+      <Button layoutX="105.0" layoutY="220.0" mnemonicParsing="false" onAction="#onCancel" prefHeight="30.0" prefWidth="76.0" text="Cancel" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="105.0" AnchorPane.rightAnchor="319.0" AnchorPane.topAnchor="220.0" />
    </children>
 </AnchorPane>

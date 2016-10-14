@@ -25,8 +25,6 @@ public class MainApp extends Application {
 
 
 	public MainApp(){
-		taskData.add(new Task("Study"));
-	    taskData.add(new Task("Clean"));
 	}
 	public ObservableList<Task> getTaskData() {
 		return taskData;
@@ -52,7 +50,9 @@ public class MainApp extends Application {
 	          // Set scene to the scene containing the root layout.
 	          Scene scene = new Scene(rootLayout);
 	          primaryStage.setScene(scene);
+	          primaryStage.setResizable(false);
 	          primaryStage.show();
+	          
 	          
 	      } catch (IOException e) {
 	          e.printStackTrace();

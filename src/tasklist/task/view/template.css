@@ -1,0 +1,119 @@
+.background {
+    -fx-background-color: #f9f9f9;
+}
+
+.label {
+    -fx-font-size: 10pt;
+    -fx-font-family: "Arial Rounded MT";
+    -fx-text-fill: #5bc0de;
+    -fx-opacity: 1;
+}
+
+.label-header {
+    -fx-font-size: 15pt;
+    -fx-font-family: "Arial Rounded MT";
+    -fx-text-fill: #5bc0de;
+    -fx-opacity: 1;
+}
+
+.table-view {
+    -fx-base: #1d1d1d;
+    -fx-control-inner-background: 	#5bc0de;
+    -fx-background-color: #428bca;
+    
+    -fx-padding: 5;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-size: 10;
+    -fx-border-width: 0 0 .8 0;
+    -fx-background-color: transparent;
+    -fx-border-color: 
+        transparent
+        transparent
+        derive(-fx-base, 80%) 
+        transparent;
+    -fx-border-insets: 0 10 1 0;
+}
+
+.table-view .column-header .label {
+    -fx-font-size: 15pt;
+    -fx-font-family: "Gill Sans";
+    -fx-text-fill: #428bca;
+    -fx-alignment: center-left;
+    -fx-opacity: 1;
+}
+
+.table-view:focused .table-row-cell:filled:focused:selected {
+    -fx-background-color: -fx-focus-color;
+}
+
+.split-pane:horizontal > .split-pane-divider {
+    -fx-border-color: transparent #1d1d1d;
+    -fx-background-color: #428bca;
+}
+
+.split-pane {
+    -fx-padding: 1 0 0 0;
+}
+
+.menu-bar {
+    -fx-background-color: #428bca;
+}
+
+.context-menu {
+    -fx-background-color: derive(#037FC6,50%);
+}
+
+.menu-bar .label {
+    -fx-font-size: 10pt;
+    -fx-font-family: "Gill Sans";
+    -fx-text-fill: white;
+    -fx-opacity: 0.8;
+}
+
+.menu .left-container {
+    -fx-background-color: black;
+}
+
+.text-field {
+    -fx-font-size: 12pt;
+    -fx-font-family: "Gill Sans";
+}
+
+.button {
+    -fx-padding: 5 10;   
+    -fx-background-color: #428bca;
+    -fx-font-family: "Gill Sans";
+    -fx-font-size: 11pt;
+    -fx-text-fill: #f9f9f9;
+}
+
+.button:hover {
+    -fx-background-color: #5bc0de;
+}
+
+.button:pressed, .button:default:hover:pressed {
+  -fx-background-color: white;
+  -fx-text-fill: #1d1d1d;
+}
+
+.button:focused {
+    -fx-border-style: solid, segments(1, 1);
+    -fx-border-radius: 0, 0;
+}
+
+.button:disabled, .button:default:disabled {
+    -fx-opacity: 0.5;
+    -fx-background-color: #f9f9f9;
+    -fx-text-fill: #d9534f;
+}
+
+.button:default {
+    -fx-background-color: -fx-focus-color;
+    -fx-text-fill: #f9f9f9;
+}
