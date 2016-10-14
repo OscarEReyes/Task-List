@@ -3,17 +3,24 @@ import java.io.File;
 import java.io.IOException;
 import java.util.prefs.Preferences;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
+
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import tasklist.task.model.Task;
+import tasklist.task.model.TaskListWrapper;
 import tasklist.task.view.TaskEditDialogController;
 import tasklist.task.view.TaskOverviewController;
 
@@ -156,5 +163,63 @@ public class MainApp extends Application {
  
 	public static void main(String[] args) {
 		launch(args);
+	}
+	
+	/**
+	 * Load task data from a given file. 
+	 * Replace current task data 
+	 */
+	
+	public void loadTaskDataFromFile(File file) {
+	    try {
+	        JAXBContext contxt = JAXBContext.newInstance(TaskListWrapper.class);
+	        Unmarshaller um = contxt.createUnmarshaller();
+
+	        // Read XML from file
+	        // Unmarshall file
+	        
+	        TaskListWrapper wrapper = (TaskListWrapper) um.unmarshal(file);
+	        taskData.clear();
+	        taskData.addAll(wrapper.getTasks());
+	        // Save filePath to registry.
+	        setTaskFilePath(file);
+	        
+	        // If any exception occurs, alert user of error.
+	    } catch (Exception e) { 
+	        Alert alert = new Alert(AlertType.ERROR);
+	        alert.setTitle("Error");
+	        alert.setContentText("Failed to load data from file:\n" + file.getPath());
+	        alert.showAndWait();
+	    }
+	}
+
+	/**
+	 * Save current task data to the specified file.
+	 */
+	
+	public void saveTaskDataToFile(File file) {
+	    try {
+	        JAXBContext contxt = JAXBContext.newInstance(TaskListWrapper.class);
+	        Marshaller m = contxt.createMarshaller();
+	        m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+	        // Wrap task data
+	        TaskListWrapper wrapper = new TaskListWrapper();
+	        wrapper.setTasks(taskData);
+	        
+	        // Save XML File and marshall it
+	        m.marshal(wrapper, file);
+
+	        // Save file path to registry.
+	        setTaskFilePath(file);
+	        
+	        
+	        
+	    } catch (Exception e) {                                      // Catch any Exception
+	        Alert alert = new Alert(AlertType.ERROR);				 // Alert of error.
+	        alert.setTitle("Error");
+	        alert.setContentText("Failed to save data to file:\n" + file.getPath());
+	        alert.showAndWait();									
+	    }
 	}
 }
