@@ -70,7 +70,7 @@
                         <Button minWidth="0.0" mnemonicParsing="false" onAction="#handleDeleteTask" prefHeight="23.0" text="Delete" />
                     </buttons>
                   </ButtonBar>
-                  <Button layoutX="19.0" layoutY="270.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="154.0" text="Set Complete" />
+                  <Button layoutX="19.0" layoutY="270.0" mnemonicParsing="false" onAction="#handleSetComplete" prefHeight="25.0" prefWidth="154.0" text="Set Complete" />
                </children>
             </AnchorPane>
         </items>

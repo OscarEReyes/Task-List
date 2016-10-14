@@ -160,5 +160,27 @@ public class TaskOverviewController {
 	      }
 	  }
 	  
+	  /**
+	   * Sets selected task to Done an updates status column
+	   * Alerts user if no task was selected
+	   */
+	  
+	  @FXML
+	  private void handleSetComplete() {
+		  Task selectedTask = taskTable.getSelectionModel().getSelectedItem();
+		  if (selectedTask != null){
+			  selectedTask.setStatus("Done");
+			  statusColumn.setText(selectedTask.getStatus());
+		  } else {
+	          // Warn user of error.
+	          Alert alert = new Alert(AlertType.WARNING);
+	          alert.initOwner(mainApp.getPrimaryStage());
+	          alert.setTitle("Error: No Task Selected");
+	          alert.setContentText("Please select a task from the list.");
+	          
+	          // Show alert an wait for response
+	          alert.showAndWait();
+	      }
+	  }
 	  
 }

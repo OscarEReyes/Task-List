@@ -12,12 +12,16 @@ public class TaskEditDialogController {
 	
 	@FXML
 	private TextField nameField;
+	
 	@FXML
 	private TextField descriptionField;
+	
 	@FXML
 	private TextField dueDateField;
+	
 	@FXML
 	private TextField priorityField;
+	
 	@FXML
 	private TextField locationField;
 	
