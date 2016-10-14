@@ -119,8 +119,10 @@ public class TaskOverviewController {
 	  }
 	  
 	  /**
-	   * Creates new task
+	   * Creates new task with its number on the list as part of the name
+	   * Adds task to taskData if the user clicks ok.
 	   */
+	  
 	  @FXML
 	  private void handleNewTask() {
 		  int taskNumber = mainApp.getTaskData().size() + 1;
@@ -131,7 +133,12 @@ public class TaskOverviewController {
 	      }
 	  }
 
-
+	  /**
+	   * Handles displaying details of selected task.
+	   * Shows display if task exists
+	   * Shows the user an error window if no task was selected.
+	   */
+	  
 	  @FXML
 	  private void handleEditTask() {
 	      Task selectedTask = taskTable.getSelectionModel().getSelectedItem();
