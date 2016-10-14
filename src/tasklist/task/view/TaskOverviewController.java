@@ -3,6 +3,7 @@ package tasklist.task.view;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -59,7 +60,10 @@ public class TaskOverviewController {
 	                (observable, oldValue, newValue) -> showTaskDetails(newValue));
 	  }
 
-	  // Called by the main application so that it can have a reference to itself.
+	  /**
+	   * Gives main application a reference to itself.
+	   */
+	  
 	  public void setMainApp(MainApp mainApp) {
 		  this.mainApp = mainApp;
 
@@ -67,6 +71,10 @@ public class TaskOverviewController {
 	      taskTable.setItems(mainApp.getTaskData());
 	  }
 	  
+	  /**
+	   * Sets text for labels that display details of task.
+
+	   */
 	  private void showTaskDetails(Task task) {
 		    if (task!= null) {
 		        // Display every task detail in its appropriate label
@@ -84,8 +92,11 @@ public class TaskOverviewController {
 		    }
 		}
 	  
-	  // Delete task
-	  // Called on delete button click
+	  /**
+	   * Delete task
+	   * Called on delete button click
+	   * Sets warning if no task was selected
+	   */
 
 	  @FXML
 	  private void handleDeleteTask() {
@@ -107,10 +118,13 @@ public class TaskOverviewController {
 	      }
 	  }
 	  
-
+	  /**
+	   * Creates new task
+	   */
 	  @FXML
 	  private void handleNewTask() {
-	      Task newTask = new Task("Unnamed Task");
+		  int taskNumber = mainApp.getTaskData().size() + 1;
+	      Task newTask = new Task("Task " + taskNumber);
 	      boolean okClicked = mainApp.showTaskEditDialog(newTask);
 	      if (okClicked) {
 	          mainApp.getTaskData().add(newTask);
