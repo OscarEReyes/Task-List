@@ -1,5 +1,7 @@
 package tasklist.task;
+import java.io.File;
 import java.io.IOException;
+import java.util.prefs.Preferences;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -9,7 +11,6 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.application.Application;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import tasklist.task.model.Task;
@@ -29,6 +30,40 @@ public class MainApp extends Application {
 	}
 	public ObservableList<Task> getTaskData() {
 		return taskData;
+	}
+	
+	/**
+	 * Return task file preference
+	 * Found in oS specific registry
+	 * Return null if no preference found
+	 */
+	
+	public File getTaskFilePath(){
+		Preferences prefs = Preferences.userNodeForPackage(MainApp.class);
+		String filePath = prefs.get("filePath", null);
+				if (filePath != null){
+					return new File(filePath);
+				} else{
+					return null;
+				}
+	}
+	
+	/**
+	 * Set the file path of the currently loaded file
+	 * The path will be stored in the OS specific registry
+	 */
+	
+	public void setTaskFilePath(File file){
+		Preferences prefs = Preferences.userNodeForPackage(MainApp.class);
+		if (file != null) {
+			prefs.put("filePath", file.getPath());
+			
+			primaryStage.setTitle("Task List - " + file.getName());
+		} else {
+			prefs.remove("filePath");
+			
+			primaryStage.setTitle("Task List");
+		}
 	}
 	    
 	@Override
