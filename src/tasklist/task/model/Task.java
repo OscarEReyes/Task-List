@@ -11,6 +11,10 @@ public class Task {
 	private final StringProperty priority;
 	private final StringProperty status;
 	
+	public Task () {
+	        this(null);
+	    }
+	
 	public Task (String name){
 		taskName = new SimpleStringProperty(name);
 		description = new SimpleStringProperty("No description");
