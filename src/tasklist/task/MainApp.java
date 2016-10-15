@@ -21,6 +21,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import tasklist.task.model.Task;
 import tasklist.task.model.TaskListWrapper;
+import tasklist.task.view.RootLayoutController;
 import tasklist.task.view.TaskEditDialogController;
 import tasklist.task.view.TaskOverviewController;
 
@@ -95,9 +96,13 @@ public class MainApp extends Application {
 	          Scene scene = new Scene(rootLayout);
 	          primaryStage.setScene(scene);
 	          primaryStage.setResizable(false);
+	          // Give controller access to mainApp by passing mainApp into
+	          // the setMainApp method.
+	          RootLayoutController controller = loader.getController();
+	          controller.setMainApp(this);
+	          
 	          primaryStage.show();
-	          
-	          
+
 	      } catch (IOException e) {
 	          e.printStackTrace();
 	      }
@@ -120,6 +125,13 @@ public class MainApp extends Application {
 	        
 	    } catch (IOException e) {
 	        e.printStackTrace();
+	    }
+	    
+	    // Try to open previously loaded taskFilePath
+	    // If file is not null
+	    File file = getTaskFilePath();
+	    if (file != null) {
+	        loadTaskDataFromFile(file);
 	    }
 	}
 	
